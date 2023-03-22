@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Car Parking Management Syste</title>
+</head>
+
+<body>
+    <div class="container mx-auto py-5">
+        <h1>Car Parking Management System</h1>
+
+        <table class="w-full my-3">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Car Number</th>
+                    <th>Entry Time</th>
+                    <th>Exit Time</th>
+                </tr>
+            </thead>
+            <tbody id="tbody" class=" text-center">
+            </tbody>
+        </table>
+
+        <hr>
+
+        <div class="my-3">
+            <select name="" id="selection">
+                <option value="1">Check By Car</option>
+                <option value="2">Check Total Amount Earned (By Period)</option>
+                <option value="3">Check Number of Car (By Period)</option>
+            </select>
+        </div>
+
+        <div id="searchByCar" class="w-full hidden my-3 field">
+            <div class="">
+                <input type="text" id="carNumber" placeholder="Enter Car Number" class="py-1 px-2">
+                <button id="searchBtn" onclick="searchByCarNumber()" class=" px-3 py-1 rounded bg-gray-300">Search</button>
+            </div>
+            <div class="container mx-auto my-5 hidden" id="searchByCarResult">
+                <label class="block" for="">Car Number: <span data-id="carNumber"></span></label>
+                <label class="block" for="">Date & Time Entry: <span data-id="entryDate"></span></label>
+                <label class="block" for="">Date & Time Exit: <span data-id="exitDate"></span></label>
+                <label class="block" for="">Parking Time: <span data-id="parkingTime"></span></label>
+                <label class="block" for="">Total Amount: <span data-id="totalAmount"></span></label>
+            </div>
+        </div>
+
+        <div id="searchTotalEarn" class="w-full hidden my-3 field">
+            <h1>Total Amount Earned</h1>
+            <input type="date" id="startDate" placeholder="Enter Start Date">
+            <input type="date" id="endDate" placeholder="Enter End Date">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <div id="searchTotalParked" class="w-full hidden my-3 field">
+            <h1>Total Parking Parked</h1>
+            <input type="date" id="startDate" placeholder="Enter Start Date">
+            <input type="date" id="endDate" placeholder="Enter End Date">
+            <button id="searchBtn">Search</button>
+        </div>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

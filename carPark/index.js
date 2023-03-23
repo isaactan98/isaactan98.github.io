@@ -111,6 +111,42 @@ function searchByCarNumber() {
     }
 }
 
+function searchTotalAmountByPeriod() {
+    const startDate = document.getElementById('startDate').value + ' 00:00:00'
+    const endDate = document.getElementById('endDate').value + ' 23:59:59'
+    let totalAmount = 0;
+
+    json.forEach((item) => {
+        const entryDate = new Date(item.entryDate)
+        const exitDate = new Date(item.exitDate)
+
+        if (entryDate >= new Date(startDate) && exitDate <= new Date(endDate)) {
+            console.log("ITEM", item)
+            totalAmount += parseFloat(calculateParkingFee(entryDate, exitDate))
+        }
+
+    })
+
+    document.getElementById('totalAmount').innerHTML = totalAmount
+}
+
+function searchTotalParkedByPeriod() {
+    const startDate = document.getElementById('startDate2').value + ' 00:00:00'
+    const endDate = document.getElementById('endDate2').value + ' 23:59:59'
+    let totalParked = 0;
+
+    json.forEach((item) => {
+        const entryDate = new Date(item.entryDate)
+        const exitDate = new Date(item.exitDate)
+
+        if (entryDate >= new Date(startDate) && exitDate <= new Date(endDate)) {
+            totalParked += 1
+        }
+    })
+
+    document.getElementById('totalParked').innerHTML = totalParked
+}
+
 function calculateParkingFee(checkInDate, checkOutDate) {
     const weekdayStartHour = 9; // 9am
     const weekdayEndHour = 17; // 5pm
@@ -171,6 +207,6 @@ function calculateParkingFee(checkInDate, checkOutDate) {
         fee += weekdayDailyFee;
     }
 
-    return "RM " + fee.toFixed(2); // round to 2 decimal places
+    return fee.toFixed(2); // round to 2 decimal places
 }
 

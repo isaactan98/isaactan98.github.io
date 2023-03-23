@@ -38,30 +38,52 @@
 
         <div id="searchByCar" class="w-full hidden my-3 field">
             <div class="">
-                <input type="text" id="carNumber" placeholder="Enter Car Number" class="py-1 px-2">
-                <button id="searchBtn" onclick="searchByCarNumber()" class=" px-3 py-1 rounded bg-gray-300">Search</button>
+                <input type="text" id="carNumber" placeholder="Enter Car Number"
+                    class="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                <button id="searchBtn" onclick="searchByCarNumber()"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    Search
+                </button>
             </div>
             <div class="container mx-auto my-5 hidden" id="searchByCarResult">
                 <label class="block" for="">Car Number: <span data-id="carNumber"></span></label>
                 <label class="block" for="">Date & Time Entry: <span data-id="entryDate"></span></label>
                 <label class="block" for="">Date & Time Exit: <span data-id="exitDate"></span></label>
                 <label class="block" for="">Parking Time: <span data-id="parkingTime"></span></label>
-                <label class="block" for="">Total Amount: <span data-id="totalAmount"></span></label>
+                <label class="block" for="">Total Amount: RM <span data-id="totalAmount"></span></label>
             </div>
         </div>
 
         <div id="searchTotalEarn" class="w-full hidden my-3 field">
             <h1>Total Amount Earned</h1>
-            <input type="date" id="startDate" placeholder="Enter Start Date">
-            <input type="date" id="endDate" placeholder="Enter End Date">
-            <button id="searchBtn">Search</button>
+            <input type="date" id="startDate" placeholder="Enter Start Date"
+                class="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 ">
+            <input type="date" id="endDate" placeholder="Enter End Date"
+                class="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 ">
+            <button id="searchBtn"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                onclick="searchTotalAmountByPeriod()">Search</button>
+
+            <div class="mt-5">
+                Total Amount Earned : RM <span id="totalAmount"></span>
+            </div>
         </div>
 
         <div id="searchTotalParked" class="w-full hidden my-3 field">
             <h1>Total Parking Parked</h1>
-            <input type="date" id="startDate" placeholder="Enter Start Date">
-            <input type="date" id="endDate" placeholder="Enter End Date">
-            <button id="searchBtn">Search</button>
+            <input type="date" id="startDate2" placeholder="Enter Start Date"
+                class="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 ">
+            <input type="date" id="endDate2" placeholder="Enter End Date"
+                class="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 ">
+            <button
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                id="searchBtn" onclick="searchTotalParkedByPeriod()">
+                Search
+            </button>
+
+            <div class="mt-5">
+                Total Car Parked : <span id="totalParked"></span>
+            </div>
         </div>
 
     </div>
